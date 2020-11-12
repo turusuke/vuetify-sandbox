@@ -5,17 +5,17 @@
   "description": "",
   "author": "",
   "scripts": {
-    "start": "run-p serve storybook",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "run-s lint:*",
+    "build-storybook": "build-storybook --no-dll",
     "lint:js": "vue-cli-service lint",
-    "lint:css": "stylelint \"src/**/*.vue\" --config \"./.stylelintrc.js\" --fix",
+    "lint:style": "vue-cli-service lint:style",
+    "start": "run-p serve storybook",
+    "storybook": "start-storybook -p 6006 --no-dll",
     "test": "echo \"Error: no test specified\" && exit 1",
     "ui": "vue ui",
-    "vue": "vue",
-    "storybook": "start-storybook -p 6006 --no-dll",
-    "build-storybook": "build-storybook --no-dll"
+    "vue": "vue"
   },
   "main": "index.js",
   "dependencies": {
@@ -27,6 +27,7 @@
     "@babel/core": "^7.12.3",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@samhammer/vue-cli-plugin-stylelint": "~2.0.1",
     "@storybook/addon-actions": "^6.0.28",
     "@storybook/addon-essentials": "^6.0.28",
     "@storybook/addon-links": "^6.0.28",
@@ -79,24 +80,24 @@
   "bugs": {
     "url": "https://github.com/turusuke/vuetify-sandbox/issues"
   },
-  "homepage": "https://github.com/turusuke/vuetify-sandbox#readme",
-  "keywords": [],
-  "license": "MIT",
-  "readme": "ERROR: No README data found!",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/turusuke/vuetify-sandbox.git"
-  },
   "gitHooks": {
     "pre-commit": "lint-staged",
     "commit-msg": "commitlint -e -V"
   },
+  "homepage": "https://github.com/turusuke/vuetify-sandbox#readme",
+  "keywords": [],
+  "license": "MIT",
   "lint-staged": {
     "*.{js,vue}": [
       "npm run lint:js"
     ],
     "*.{vue,scss}": [
-      "npm run lint:css"
+      "npm run lint:style"
     ]
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/turusuke/vuetify-sandbox.git"
   }
 }

@@ -7,13 +7,15 @@
         <span>エントリーポイント</span>
         <span>テンプレート</span>
       </li>
-      <li v-for="page in pages" :key="page.entry">
-        <span
-          ><a :href="`/${page.filename}`">{{ page.title }}</a></span
-        >
-        <span>{{ page.entry }}</span>
-        <span>{{ page.template || 'public/index.html' }}</span>
-      </li>
+      <template>
+        <li v-for="page in pages" :key="page.entry">
+          <span
+            ><a :href="`/${page.filename}`">{{ page.title }}</a></span
+          >
+          <span>{{ page.entry }}</span>
+          <span>{{ page.template || 'public/index.html' }}</span>
+        </li>
+      </template>
     </ul>
   </div>
 </template>
@@ -34,7 +36,7 @@ export default {
 <style scoped>
 .container {
   width: 800px;
-  margin: 3em auto;
+  margin: 3em auto 0;
 }
 
 ul {

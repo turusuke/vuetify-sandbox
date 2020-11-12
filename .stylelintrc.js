@@ -1,6 +1,6 @@
 module.exports = {
-  extends: 'stylelint-config-standard',
   plugin: ['stylelint-scss'],
+  extends: ['stylelint-config-standard'],
   rules: {
     'block-no-empty': null,
     'declaration-colon-newline-after': null,
@@ -31,5 +31,7 @@ module.exports = {
       }
     ],
     'no-empty-source': null
-  }
+  },
+
+  root: true,
 }
