@@ -1,8 +1,16 @@
 # vuetify-sandbox
 
+## node
+- v14.15.0
+
 ## Project setup
 ```
 npm install
+```
+
+### Compiles and hot-reloads and storybook for development
+```
+npm start
 ```
 
 ### Compiles and hot-reloads for development
@@ -19,6 +27,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
