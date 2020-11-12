@@ -8,7 +8,9 @@
     "start": "run-p serve storybook",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
+    "lint": "run-s lint:*",
+    "lint:js": "vue-cli-service lint",
+    "lint:css": "stylelint \"src/**/*.vue\" --config \"./.stylelintrc.js\" --fix",
     "test": "echo \"Error: no test specified\" && exit 1",
     "ui": "vue ui",
     "vue": "vue",
@@ -23,6 +25,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@storybook/addon-actions": "^6.0.28",
     "@storybook/addon-essentials": "^6.0.28",
     "@storybook/addon-links": "^6.0.28",
@@ -44,6 +48,7 @@
     "react-is": "^17.0.1",
     "sass": "^1.29.0",
     "sass-loader": "^10.0.5",
+    "stylelint": "^13.7.2",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.18.0",
     "vue-cli-plugin-vuetify": "~2.0.7",
@@ -81,5 +86,17 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/turusuke/vuetify-sandbox.git"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint -e -V"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "npm run lint:js"
+    ],
+    "*.{vue,scss}": [
+      "npm run lint:css"
+    ]
   }
 }
